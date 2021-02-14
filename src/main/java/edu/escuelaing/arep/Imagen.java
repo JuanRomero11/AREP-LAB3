@@ -25,9 +25,9 @@ public class Imagen implements Response {
 			fis.read(data);
 			fis.close();
 
-			// Cabeceras con la info de imagen (ya sea png o jpg)
+			
 			// System.out.println("ENTREEEEEEEEEEEEEEEEEEEEEEEEEEEE 2
-			// "+(clientSocket!=null));
+		
 			DataOutputStream binaryOut = new DataOutputStream(clientSocket.getOutputStream());
 			binaryOut.writeBytes("HTTP/1.0 200 OK\r\n");
 			binaryOut.writeBytes("Content-Type: image/" + extension + "\r\n");
