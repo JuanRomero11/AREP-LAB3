@@ -11,10 +11,30 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.io.*;
 
+/**
+ * The Class HttpServer.
+ */
+/**
+ * @author Juan Romero
+ *
+ */
 public class HttpServer {
+	
+	/** The out. */
 	static PrintWriter out;
+	
+	/** The in. */
 	static BufferedReader in;
+	
+	/** The nueva conexion. */
 	static ConexionBD nuevaConexion;
+	
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public static void main(String[] args) throws IOException {
 		Socket clientSocket = null;
 		ServerSocket serverSocket = null;
@@ -71,6 +91,14 @@ public class HttpServer {
 		}
 	}
 
+	/**
+	 * Solicitud.
+	 *
+	 * @param req the req
+	 * @param clientSocket the client socket
+	 * @param path the path
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public static void Solicitud(String req, Socket clientSocket, String path) throws IOException {
 
 		String extension = FilenameUtils.getExtension(req);
@@ -92,6 +120,12 @@ public class HttpServer {
 	}
 	
 	
+	/**
+	 * Gets the function lambda.
+	 *
+	 * @param req the req
+	 * @return the function lambda
+	 */
 	public static void getFunctionLambda(String req) {
 		 String[] list = req.split("\\?");
 		  String valor = list[1];
@@ -112,6 +146,11 @@ public class HttpServer {
 	      expresion.get(valor);
 	}
 
+	/**
+	 * Gets the port.
+	 *
+	 * @return the port
+	 */
 	static int getPort() {
 		if (System.getenv("PORT") != null) {
 			return Integer.parseInt(System.getenv("PORT"));

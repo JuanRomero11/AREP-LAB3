@@ -8,14 +8,31 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+/**
+ * The Class Imagen.
+ */
 public class Imagen implements Response {
 
+	/** The out. */
 	private PrintWriter out;
 
+	/**
+	 * Instantiates a new imagen.
+	 *
+	 * @param out the out
+	 */
 	public Imagen(PrintWriter out) {
 		this.out = out;
 	}
 
+	/**
+	 * Solicitud archivo.
+	 *
+	 * @param file the file
+	 * @param clientSocket the client socket
+	 * @param extension the extension
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	@Override
 	public void SolicitudArchivo(File file, Socket clientSocket, String extension) throws IOException {
 		try {
